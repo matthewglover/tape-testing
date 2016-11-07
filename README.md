@@ -144,6 +144,38 @@ test('Handle callbacks: error', function (t) {
 });
 ```
 
+#### Step 4 - Handling errors
+
+- Declare an error throwing function to test:
+
+```javascript
+function checkWin (score) {
+  if (score < 20) {
+    throw new Error('Too low');
+  } else {
+    return 'You win!';
+  }
+}
+```
+
+- Handle success:
+
+```javascript
+test('Handle success', function (t) {
+  t.equals(checkWin(20), 'You win!');
+  t.end();
+});
+```
+
+- Handle errors:
+
+```javascript
+test('Handle errors', function (t) {
+  t.throws(function () { return checkWin(19); });
+  t.end();
+});
+```
+
 ## Useful links
 
 - Tape repo: https://github.com/substack/tape

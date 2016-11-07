@@ -60,6 +60,16 @@ test('Handle callbacks: error', function (t) {
   });
 });
 
+test('Handle success', function (t) {
+  t.equals(checkWin(20), 'You win!');
+  t.end();
+});
+
+test('Handle errors', function (t) {
+  t.throws(function () { return checkWin(19); });
+  t.end();
+});
+
 function asyncDouble (n, cb) {
   setTimeout(function () {
     if (typeof n !== 'number') {
@@ -68,4 +78,12 @@ function asyncDouble (n, cb) {
       cb(null, n * 2);
     }
   }, 10);
+}
+
+function checkWin (score) {
+  if (score < 20) {
+    throw new Error('Too low');
+  } else {
+    return 'You win!';
+  }
 }
