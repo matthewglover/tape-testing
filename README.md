@@ -217,7 +217,7 @@ var { asyncDouble, checkWin } = require('../src/my_functions');
 
 
 
-#### Step 6 - Test scripts and reporters
+#### Step 7 - Test scripts and reporters
 
 - Add a test script to `package.json` to test all files in the test directory:
 ```json
