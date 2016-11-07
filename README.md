@@ -234,7 +234,7 @@ var { asyncDouble, checkWin } = require('../src/my_functions');
   - install faucet: `npm i D faucet`
   - update the test script: ```tape 'test/**/*.js' | faucet```
 
-- Add a watch script to run test on change of file (require `nodemon` to be installed globally):
+- Add a watch script to run test on change of file (requires `nodemon` to be installed globally):
 
 ```json
 ...
