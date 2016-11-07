@@ -44,3 +44,28 @@ test('Check values are falsy', function (t) {
   t.notOk('');
   t.end();
 });
+
+test('Handle callbacks: success', function (t) {
+  t.plan(2);    // With t.plan(), no need for t.end()
+  asyncDouble(10, function (error, result) {
+    t.error(error);
+    t.equal(result, 20);
+  });
+});
+
+test('Handle callbacks: error', function (t) {
+  asyncDouble('10', function (error, result) {
+    t.ok(error instanceof TypeError);
+    t.end();
+  });
+});
+
+function asyncDouble (n, cb) {
+  setTimeout(function () {
+    if (typeof n !== 'number') {
+      cb(new TypeError('Expected number'));
+    } else {
+      cb(null, n * 2);
+    }
+  }, 10);
+}
