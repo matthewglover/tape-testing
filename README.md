@@ -215,6 +215,38 @@ var checkWin = myFunctions.checkWin;
 var { asyncDouble, checkWin } = require('../src/my_functions');
 ```
 
+
+
+#### Step 6 - Test scripts and reporters
+
+- Add a test script to `package.json` to test all files in the test directory:
+```json
+...
+"scripts": {
+    "test": "tape 'test/**/*.js'"
+}
+...
+```
+
+- Run your tests with `npm test`
+
+- Add a reporter for nicer output:
+  - install faucet: `npm i D faucet`
+  - update the test script: ```tape 'test/**/*.js' | faucet```
+
+- Add a watch script to run test on change of file (require `nodemon` to be installed globally):
+
+```json
+...
+"scripts": {
+    "test": "tape 'test/**/*.js' | faucet",
+    "watch": "nodemon -q -x 'npm test'"
+}
+...
+```
+
+- Run your watch command: `npm run watch` and then change your test files to check it re-runs on file save.
+
 ## Useful links
 
 - Tape repo: https://github.com/substack/tape

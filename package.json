@@ -4,7 +4,8 @@
   "description": "An app for demonstrating unit testing Nodejs using Tape",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "tape 'test/**/*.js' | faucet",
+    "watch": "nodemon -q -x 'npm test'"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
     "eslint-plugin-promise": "^3.3.1",
     "eslint-plugin-react": "^6.6.0",
     "eslint-plugin-standard": "^2.0.1",
+    "faucet": "0.0.1",
     "tape": "^4.6.2"
   }
 }
