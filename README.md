@@ -247,6 +247,18 @@ var { asyncDouble, checkWin } = require('../src/my_functions');
 
 - Run your watch command: `npm run watch` and then change your test files to check it re-runs on file save.
 
+
+#### Step 8 - Testing an Http Server
+
+- See the example server at `src/server.js` which serves static files from the `/static` directory as `/public`.
+
+- What makes this code difficult to test?
+
+- Which bits of the code are particularly hard to test and why?
+
+- How could the code be refactored to make it more testable?
+
+
 ## Useful links
 
 - Tape repo: https://github.com/substack/tape
