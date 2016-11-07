@@ -176,6 +176,15 @@ test('Handle errors', function (t) {
 });
 ```
 
+#### Step 5 - Test helpers
+
+- If you only want to run one test use `test.only(...)`
+
+- If you want to skip a test use `test.skip(...)`
+
+- If you want to add a comment (or log something) use `test.comment('your comment')`
+
+
 ## Useful links
 
 - Tape repo: https://github.com/substack/tape
