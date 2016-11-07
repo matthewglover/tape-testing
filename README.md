@@ -104,6 +104,46 @@ test('Check values are falsy', function (t) {
 });
 ```
 
+
+#### Step 3 - Asynchronous callbacks
+
+- Declare a callback function to test:
+
+```javascript
+function asyncDouble (n, cb) {
+  setTimeout(function () {
+    if (typeof n !== 'number') {
+      cb(new TypeError('Expected number'));
+    } else {
+      cb(null, n * 2);
+    }
+  }, 10);
+}
+```
+
+- Test success:
+
+```javascript
+test('Handle callbacks: success', function (t) {
+  t.plan(2);    // With t.plan(), no need for t.end()
+  asyncDouble(10, function (error, result) {
+    t.error(error);
+    t.equal(result, 20);
+  });
+});
+```
+
+- Test failure:
+
+```javascript
+test('Handle callbacks: error', function (t) {
+  asyncDouble('10', function (error, result) {
+    t.ok(error instanceof TypeError);
+    t.end();
+  });
+});
+```
+
 ## Useful links
 
 - Tape repo: https://github.com/substack/tape
