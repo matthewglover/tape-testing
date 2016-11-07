@@ -1,4 +1,5 @@
 var test = require('tape');
+var { asyncDouble, checkWin } = require('../src/my_functions');
 
 test('Check tape is working with a simple passing test', function (t) {
   t.pass('a message to print out on success');
@@ -69,21 +70,3 @@ test('Handle errors', function (t) {
   t.throws(function () { return checkWin(19); });
   t.end();
 });
-
-function asyncDouble (n, cb) {
-  setTimeout(function () {
-    if (typeof n !== 'number') {
-      cb(new TypeError('Expected number'));
-    } else {
-      cb(null, n * 2);
-    }
-  }, 10);
-}
-
-function checkWin (score) {
-  if (score < 20) {
-    throw new Error('Too low');
-  } else {
-    return 'You win!';
-  }
-}

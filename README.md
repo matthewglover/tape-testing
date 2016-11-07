@@ -185,6 +185,36 @@ test('Handle errors', function (t) {
 - If you want to add a comment (or log something) use `test.comment('your comment')`
 
 
+#### Step 6 - Testing external files
+
+- Create a file `src/my_functions.js`
+
+- Move `asyncDouble` and `checkWin` from `my_first_test.js` to `src/my_functions.js`
+
+- Then export the functions:
+
+```javascript
+module.exports = {
+  asyncDouble,
+  checkWin
+};
+```
+
+- At the top of the file add the following:
+
+```javascript
+var myFunctions = require('../src/my_functions');
+
+var asyncDouble = myFunctions.asyncDouble;
+var checkWin = myFunctions.checkWin;
+```
+
+- Or for a more succinct syntax, use destructuring:
+
+```javascript
+var { asyncDouble, checkWin } = require('../src/my_functions');
+```
+
 ## Useful links
 
 - Tape repo: https://github.com/substack/tape
